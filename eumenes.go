@@ -1,4 +1,4 @@
-package getafix_philter
+package eumenes
 
 import (
 	"fmt"

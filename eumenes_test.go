@@ -1,4 +1,4 @@
-package getafix_philter
+package eumenes_test
 
 import (
 	"bytes"
@@ -8,6 +8,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/bilfash/eumenes"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -34,8 +35,8 @@ func captureOutput(f func()) string {
 	return buf.String()
 }
 
-func TestGetafix_Info(t *testing.T) {
-	logger := NewEumenes(&appDummy, &projectDummy, &serverDummy, &version)
+func TestEumenes_Info(t *testing.T) {
+	logger := eumenes.NewEumenes(&appDummy, &projectDummy, &serverDummy, &version)
 	dummyTime := time.Now()
 	formattedTime := dummyTime.Format("2018-05-07T15:38:01.841442892+07:00")
 	result := captureOutput(func() {
@@ -47,8 +48,8 @@ func TestGetafix_Info(t *testing.T) {
 	assert.Equal(t, expected, result, "should be equal")
 }
 
-func TestGetafix_Warning(t *testing.T) {
-	logger := NewEumenes(&appDummy, &projectDummy, &serverDummy, &version)
+func TestEumenes_Warning(t *testing.T) {
+	logger := eumenes.NewEumenes(&appDummy, &projectDummy, &serverDummy, &version)
 	dummyTime := time.Now()
 	formattedTime := dummyTime.Format("2018-05-07T15:38:01.841442892+07:00")
 	result := captureOutput(func() {
@@ -60,8 +61,8 @@ func TestGetafix_Warning(t *testing.T) {
 	assert.Equal(t, expected, result, "should be equal")
 }
 
-func TestGetafix_Error(t *testing.T) {
-	logger := NewEumenes(&appDummy, &projectDummy, &serverDummy, &version)
+func TestEumenes_Error(t *testing.T) {
+	logger := eumenes.NewEumenes(&appDummy, &projectDummy, &serverDummy, &version)
 	dummyTime := time.Now()
 	formattedTime := dummyTime.Format("2018-05-07T15:38:01.841442892+07:00")
 	result := captureOutput(func() {
